@@ -30,8 +30,9 @@ async fn main() {
     }
     //TODO: Retrieve the url from the environment variable, or configure the env variable if it is not set
     let url: String = "".to_string(); //ADD YOUR URL HERE
+    let url_gen: String = url.clone()+"/generate";
     let request: Result<String, reqwest::Error> = http_client
-        .post(&url)
+        .post(&url_gen)
         .json(&map)
         .send()
         .await
